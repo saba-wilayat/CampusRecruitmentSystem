@@ -1,0 +1,22 @@
+    
+<div id="mainDiv">
+  <md-card id="LoginCard">
+    <div class="ui raised segment">
+      <h2 class="ui header">LOGIN</h2>
+      <form #form="ngForm" (ngSubmit)="login(form.value)" class="ui form">
+        <md-input-container class="input-container">
+          <md-icon class="email"></md-icon>
+          <input md-input placeholder="Email" type="text" name="Email" required ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon class="password"></md-icon>
+          <input md-input type="password" placeholder="Password" name="Password" required ngModel>
+        </md-input-container><br>
+
+        <button md-raised-button type="submit" color="primary">SUBMIT</button>
+
+      </form>
+    </div>    
+       
+    
+  </md-card>

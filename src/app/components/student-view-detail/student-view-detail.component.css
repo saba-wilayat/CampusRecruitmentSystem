@@ -1,0 +1,98 @@
+.SearchFilters_Container{
+    margin-right: 1.2em;
+    display: inline-block;
+    width: 17%;
+}
+.SearchFilters_Container md-select{
+    margin: 0px 0px 0px !important;
+}
+.SearchFilters_Container md-select .md-select-value{
+    padding: 0 0 0  !important;
+    border-bottom-width: 0 !important;
+    border-bottom-style: solid !important;
+    min-height: 0 !important;
+}
+.SearchFilters_Container md-select .md-select-value .md-select-icon,.resolution md-select .md-select-value .md-select-icon{
+     color: #00AEEF !important;
+}
+.wp_input{
+    
+    background: transparent;
+    background-color: 1px solid black;
+    width: 100%;
+    font-size: 17px;
+    font-family: Roboto-Medium;
+    color: black;
+}
+.cdk-overlay-container .SearchFilters_Container{
+    margin-top: -78% !important;
+    width: 15% !important;
+    margin-left: 44% !important;
+}
+
+.md-select-panel {
+ max-height: 320px
+}
+
+
+.page_printList_mdCard {
+    display: inline-block;
+    height: auto;
+    vertical-align: top;
+    width: 98%;
+    margin-left: 1em;
+}
+.card_content{
+    margin: 0;
+    padding-bottom: 0;
+}
+.card_action{
+    margin-top: -20px;
+}
+.uname-css{
+    color:  #00AEEF;
+}
+.infoLbl{
+    color: #A7A9AC;
+    font-size:0.938em;
+}
+.black{
+    color: #000;
+}
+
+.UserProfile {
+    line-height: 1.9em;
+}
+.bold{
+    font-family: Roboto-bold;
+}
+
+.inline-block-elem{
+    display: inline-block;
+}
+
+.top-aligned-elem {
+    vertical-align: top;
+}
+
+.card_content .card-cell-1n{
+    width: 40%;
+}
+.card_content .card-cell-2n{
+    width: 22%;
+    margin-right: 2%;
+}
+.card_content .card-cell-3n{
+    width: 32%;
+}
+
+.patient_img{
+    display: inline-block;
+    min-width: 35px;
+    min-height: 35px;
+    width: 70px;
+    height: 70px;
+    cursor: default;
+    border-radius: 500px;
+    vertical-align: super;
+}

@@ -1,0 +1,59 @@
+<div id="companyDiv">
+  <md-card id="companyLoginCard">
+
+    <div class="ui raised segment">
+      <h2 class="ui header">COMPANY REGISTRATION</h2>
+      <form #f="ngForm" (ngSubmit)="CompanyRegistrat(f.value)" class="ui form">
+
+        <div id="mainImageDiv">
+          Upload Logo
+          <input id="file" name="file" type="file" id="CompanyLogo">
+          <button type="button" class="btn btn-success btn-xs btn" (click)="LogoUpload()">
+              <span class="glyphicon glyphicon-upload"></span> Upload
+          </button>
+        </div>
+        <div id="imageDiv" *ngIf = "!url">
+          <img md-card-avatar id="userImage" class="md-user-avatar logo_img" src = '{{"../../app/img/icons/logo.png"}}'>
+        </div><br>
+        <div id="imageDiv" *ngIf = "url">
+          <img md-card-avatar id="userImage" class="md-user-avatar logo_img" [src] = 'url'>
+        </div><br>
+
+
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/user.svg" class="name"></md-icon>
+          <input md-input type="text" placeholder="Company Name" name="CompanyName" required ngModel>
+        </md-input-container>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="Established"></md-icon>
+          <input md-input type="number" placeholder="Established" name="established" required ngModel>
+        </md-input-container>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+          <input md-input type="text" placeholder="Phone Number" name="PhoneNumber" ngModel>
+        </md-input-container>
+
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+          <input md-input type="email" placeholder="Email (required)" required name="Email" ngModel>
+        </md-input-container>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="HRName"></md-icon>
+          <input md-input type="text" placeholder="HRName" name="hrName" ngModel>
+        </md-input-container>
+
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="userName"></md-icon>
+          <input md-input type="text" placeholder="User name" name="name" required ngModel>
+        </md-input-container>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="password"></md-icon>
+          <input md-input type="password" placeholder="password" name="Password" required ngModel>
+        </md-input-container> <br>
+
+        <button md-raised-button type="submit" color="primary">Register</button>
+      </form>
+
+    </div>
+  </md-card><br><br>
+</div>

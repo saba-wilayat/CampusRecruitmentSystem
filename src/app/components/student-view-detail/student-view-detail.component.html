@@ -1,0 +1,42 @@
+<md-card>
+      <div class="SearchFilters_Container">
+            <select class="wp_input" [(ngModel)]="selectedValue" (change)="onChange($event , selectedValue)">
+                  <option *ngFor="let i of qulification">{{i}}</option>
+            </select>
+      </div>
+</md-card>
+<br>
+<br>
+<div>
+
+<md-card *ngFor="let s of this.studentDepartmantWise" style="margin-top: 2em">
+      <img md-card-avatar class="md-user-avatar patient_img" src='{{"../../app/img/userImage.png"}}'>
+<div class="inline-block-elem top-aligned-elem card-cell-1n">
+      
+                  <div class="UserProfile">
+                    <h2>
+                      <span class="uname-css">
+                        {{(s.FirstName ? s.FirstName :  "")}}{{(s.MiddleName ? s.MiddleName :  "")}}{{(s.LastName ? s.LastName :  "")}}
+                      </span>
+                    </h2>                    
+                  <p style="margin: 1em 0;"><span class="infoLbl bold">Gender</span><span class="regular" style="padding: 1.5em">{{(s.Gender ? s.Gender :  "")}}</span></p>                  
+                  </div>
+            </div>
+            <div class="inline-block-elem top-aligned-elem card-cell-2n">
+                  
+                  <div>
+                        <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Date of Birth</span> <span class="relation-css regular rightFloatElem">{{s.DOB || ""}}</span></p>
+                  </div>
+                  <div>
+                        <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">CONTACT NO:</span> <span class="relation-css regular rightFloatElem">{{s.Contact || ""}}</span></p>
+                  </div>
+                  <div>
+                        <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Email:</span> <span class="relation-css regular rightFloatElem">{{s.Email || ""}}</span></p>
+                  </div>
+                 
+            </div>
+
+</md-card>
+</div >
+
+      

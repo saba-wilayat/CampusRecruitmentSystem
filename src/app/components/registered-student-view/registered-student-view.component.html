@@ -1,0 +1,209 @@
+<md-tab-group >
+    <md-tab label="Add My Resume" >
+        <div id="mainDiv">
+            <md-card id="Card">
+                <h2>Upload Resume</h2>
+
+                <input id="file" name="file" type="file">
+                <!--<button (click)="FileUpload()" type="button">Upload</button>-->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Name</th>
+                            <th>Size</th>
+                            <!--<th>Progress</th>-->
+                            <th [hidden]="savedResume?.filename">Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>{{File?.name || savedResume?.filename}}</strong></td>
+                            <td nowrap>{{(savedResume?.size/1024/1024 | number:'.2') || (File?.size/1024/1024 | number:'.2')}} MB</td>
+                            <!--<td  [(ngModel)]="progress">{{progress}}</td>-->
+
+                            <td class="text-center" [hidden]="savedResume?.filename">
+                                <span *ngIf="isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                <span *ngIf="isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                <span *ngIf="isError"><i class="glyphicon glyphicon-remove"></i></span>
+                            </td>
+                            <td nowrap>
+                                <span [hidden]="savedResume?.filename">
+                                    <button type="button" class="btn btn-success btn-xs" (click)="FileUpload()" [disabled]="isUploading || isSuccess">
+                                        <span class="glyphicon glyphicon-upload"></span> Upload
+                                    </button>
+                                </span>
+                                <button type="button" class="btn btn-danger btn-xs" (click)="FileRemove(savedResume?.filename)">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </md-card><br>            
+        </div><br>
+    </md-tab>
+
+
+<md-tab label="View My Profile">
+    <div id="studentDiv">
+        <md-card id="studentLoginCard">
+            <div class="ui raised segment">
+                <h2 class="ui header">MY PROFILE</h2>
+                <form #f="ngForm" (ngSubmit)="UpdateUserProfile(f.value)" class="ui form">
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/account.svg" class="firstName"></md-icon>
+                        <input md-input type="text" placeholder="First Name" name="FirstName" [disabled]="!isEDIT" required [ngModel]="obj?.FirstName"
+                            ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="middleName"></md-icon>
+                        <input md-input type="text" placeholder="Middle Name" name="MiddleName" [disabled]="!isEDIT" required [ngModel]="obj?.LastName"
+                            ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="lastName"></md-icon>
+                        <input md-input type="text" placeholder="Middle Name" name="LastName" [disabled]="!isEDIT" required [ngModel]="obj?.MiddleName"
+                            ngModel>
+                    </md-input-container>
+                    <div class="SearchFilters_Container">
+                        <md-select placeholder="Gender" name="Gender" ng-required="true" [disabled]="!isEDIT" required [ngModel]="obj?.Gender" ngModel>
+                            <md-option value="Gender">Gender</md-option>
+                            <md-option value="Female">Female</md-option>
+                        </md-select>
+                    </div>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                        <input md-input type="email" placeholder="Email" required name="Email" [disabled]="!isEDIT" [ngModel]="obj?.Email" ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                        <input md-input type="text" placeholder="Contact Number" name="ContactNumber" [disabled]="!isEDIT" [ngModel]="obj?.ContactNumber"
+                            required ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="city"></md-icon>
+                        <input md-input type="text" placeholder="City" name="City" [disabled]="!isEDIT" [ngModel]="obj?.City" ngModel>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="address"></md-icon>
+                        <input md-input type="text" placeholder="Address" name="Address" [disabled]="!isEDIT" [ngModel]="obj?.Address" ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="dob"></md-icon>
+                        <input md-input type="text" placeholder="DOB" name="DOB" [disabled]="!isEDIT" required [ngModel]="obj?.DOB" ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="age"></md-icon>
+                        <input md-input type="text" placeholder="Age" name="Age" [disabled]="!isEDIT" required [ngModel]="obj?.Age" ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="school"></md-icon>
+                        <input md-input type="text" placeholder="School" name="School" [disabled]="!isEDIT" [ngModel]="obj?.School" required ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="yearOfPassing"></md-icon>
+                        <input md-input type="text" placeholder="Year Of Passing" nrequired name="YearOfPassing" [disabled]="!isEDIT" [ngModel]="obj?.YearOfPassing"
+                            ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="University"></md-icon>
+                        <input md-input type="text" placeholder="University" nrequired name="University" [disabled]="!isEDIT" [ngModel]="obj?.University"
+                            ngModel>
+                    </md-input-container>
+                    <div class="SearchFilters_Container">
+
+                        <md-select placeholder="Department" name="Department" required [disabled]="!isEDIT" [ngModel]="obj?.Department" ngModel>
+                            <md-option value="ComputerScience">Computer Science</md-option>
+                            <md-option value="BE">BE</md-option>
+                            <md-option value="Arts">Arts</md-option>
+                            <md-option value="BCS">BCS</md-option>
+                        </md-select>
+                    </div>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="cirriculars"></md-icon>
+                        <input md-input type="text" placeholder="Extra Cirriculars" name="Cirriculars" [disabled]="!isEDIT" [ngModel]="obj?.Cirriculars"
+                            ngModel>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="qualification"></md-icon>
+                        <input md-input type="text" placeholder="Other Qualification" name="OtherQualification" [disabled]="!isEDIT" [ngModel]="obj?.OtherQualification"
+                            ngModel>
+                    </md-input-container><br>
+                    <button md-raised-button (click)="EditProfile()" color="primary" [disabled]="isEDIT">Edit</button>
+                    <button md-raised-button type="submit" color="primary" [disabled]="!isEDIT">Update</button>
+                </form>
+            </div>
+        </md-card>
+    </div>
+</md-tab>
+
+
+
+<md-tab label="View All Companies">
+    <div id="CompaniesCardDiv">
+        <md-card *ngFor="let s of Companies" id="CompaniesCard">
+            <img *ngIf= "!logoURL" md-card-avatar class="md-user-avatar patient_img" src = '{{"../../app/img/icons/logo.png"}}'>
+            <img *ngIf= "logoURL" md-card-avatar class="md-user-avatar patient_img" [src] = s.logoURL>
+            <div class="inline-block-elem top-aligned-elem card-cell-1n">
+                <div class="UserProfile">
+                    <h2>
+                        <span class="uname-css">
+                        {{(s.CompanyName ? s.CompanyName :  "")}}
+                      </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="inline-block-elem top-aligned-elem card-cell-2n">
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">CONTACT NO:</span> <span class="relation-css regular rightFloatElem">{{s.PhoneNumber || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Email:</span> <span class="relation-css regular rightFloatElem">{{s.established || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">HR Name:</span> <span class="relation-css regular rightFloatElem">{{s.hrName || ""}}</span></p>
+                </div>
+            </div>
+            <div id="jobBtn">
+                <button md-raised-button (click)="ViewJOBS(s.$key)" color="primary">View Jobs</button>
+            </div>
+        </md-card><br>
+    </div>
+</md-tab>
+
+
+
+<md-tab label="View All Jobs">
+    <div id="CompaniesCardDiv">
+        <md-card *ngFor="let s of Alljobs" id="CompaniesCard">
+            <div class="UserProfile">
+                <h2>
+                    <span class="uname-css">
+                        {{(s.jobTitle ? s.jobTitle :  "")}}
+                    </span>
+                </h2>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Eligibility Criteria:</span> <span class="relation-css regular rightFloatElem">{{s.EligibilityCriteria || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Comapny Name:</span> <span class="relation-css regular rightFloatElem">{{this.groupedID[s.Company_Id] || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Email:</span> <span class="relation-css regular rightFloatElem">{{s.Email || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Job Profile:</span> <span class="relation-css regular rightFloatElem">{{s.JobProfile || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Salary:</span> <span class="relation-css regular rightFloatElem">{{s.Salary || ""}}</span></p>
+                </div>
+            </div>
+        </md-card><br>
+    </div>
+</md-tab>
+
+</md-tab-group>

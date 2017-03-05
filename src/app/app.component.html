@@ -1,0 +1,34 @@
+
+<md-toolbar  color="primary">
+  <span><md-icon>mood</md-icon></span>
+  <span>Campus Recruitment System</span>
+    <span class="spacer"></span>
+    <div id="name">{{UserName}}</div>    
+    <img *ngIf = "UserImage" md-card-avatar class="md-user-avatar user_img" [src] = UserImage>
+    <img *ngIf = "!UserImage" md-card-avatar class="md-user-avatar user_img">
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu #menu="mdMenu">
+      <button *ngIf="!UserName" md-menu-item [routerLink]="['Login']">
+        <md-icon>fingerprint</md-icon>
+        <span>Login</span>
+      </button>
+      <button *ngIf="UserName" md-menu-item (click) = "logOut()">
+        <md-icon>fingerprint</md-icon>
+        <span>LogOut</span>
+      </button>
+      <button *ngIf="!UserName" md-menu-item [routerLink]="['companyRegistration']">
+        <md-icon>domain</md-icon>
+        <span>Company Registeration</span>
+      </button>
+      <button *ngIf="!UserName" md-menu-item [routerLink]="['studentRegistration']">
+        <md-icon>person add</md-icon>
+        <span>Student Registeration</span>
+      </button>  
+
+      <!--<button (click)="registrationPage()" md-raised-button type="button" color="primary">Company Registeration</button>    -->
+    </md-menu>
+</md-toolbar>
+<router-outlet></router-outlet>
+

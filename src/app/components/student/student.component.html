@@ -1,0 +1,116 @@
+<div id="studentDiv">
+  <md-card id="studentLoginCard">
+    <div class="ui raised segment">
+      <h2 class="ui header">STUDENT REGISTRATION</h2>
+      <form #f="ngForm" (ngSubmit)="UserRegister(f.value)" class="ui form">
+
+        <div id="mainImageDiv">
+          Upload Profile Picture
+          <input id="file" name="file" type="file" id="UserImage">
+          <button type="button" class="btn btn-success btn-xs btn" (click)="ImageUpload()">
+              <span class="glyphicon glyphicon-upload"></span> Upload
+          </button>
+        </div>
+        <div id="imageDiv" *ngIf= "!url">
+          <img md-card-avatar id="userImage" class="md-user-avatar user_img" src='{{"../../app/img/userImage.png"}}'>          
+        </div><br>
+        <div id="imageDiv" *ngIf= "url">          
+          <img md-card-avatar id="userImage" class="md-user-avatar user_img" [src]= 'url'>          
+        </div><br>
+
+        <md-input-container class="input-container"><br>
+          <md-icon md-svg-src="img/icons/user.svg" class="firstName"></md-icon>
+          <input md-input type="text" placeholder="First Name" name="FirstName" required ngModel>
+        </md-input-container><br>
+        <!--<md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="middleName"></md-icon>
+          <input md-input type="text" placeholder="Middle Name" name="MiddleName" required ngModel>
+        </md-input-container><br>-->
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="lastName"></md-icon>
+          <input md-input type="text" placeholder="Last Name" name="LastName" required ngModel>
+        </md-input-container><br>
+        <div class="SearchFilters_Container">
+          <md-select placeholder="Gender" name="Gender" ng-required="true" required ngModel>
+            <md-option value="Male">Male</md-option>
+            <md-option value="Female">Female</md-option>
+          </md-select>
+        </div><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+          <input md-input type="email" placeholder="Email" required name="Email" ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+          <input md-input type="text" placeholder="Contact Number" name="ContactNumber" required ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="city"></md-icon>
+          <input md-input type="text" placeholder="City" name="City" ngModel>
+        </md-input-container><br>
+
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="address"></md-icon>
+          <input md-input type="text" placeholder="Address" name="Address" ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="dob"></md-icon>
+          <input md-input type="text" placeholder="DOB" name="DOB" required ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="age"></md-icon>
+          <input md-input type="text" placeholder="Age" name="Age" required ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="school"></md-icon>
+          <input md-input type="text" placeholder="School" name="School" required ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="yearOfPassing"></md-icon>
+          <input md-input type="text" placeholder="Year Of Passing" nrequired name="YearOfPassing" ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="University"></md-icon>
+          <input md-input type="text" placeholder="University" nrequired name="University" ngModel>
+        </md-input-container><br>
+        <div class="SearchFilters_Container">
+
+          <md-select placeholder="Department" name="Department" required ngModel>
+            <md-option value="ComputerScience">Computer Science</md-option>
+            <md-option value="Civil Engineering">Civil Engineering</md-option>
+            <md-option value="Computer Engineering">Computer Engineering</md-option>
+            <md-option value="Electrical Engineering">Electrical Engineering</md-option>
+            <md-option value="Electronics & Electrical Systems">Electronics & Electrical Systems</md-option>
+            <md-option value="Mechanical Engineering">Mechanical Engineering</md-option>
+            <md-option value="Department of Technology">Department of Technology</md-option>
+          </md-select>
+        </div><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="cirriculars"></md-icon>
+          <input md-input type="text" placeholder="Extra Cirriculars" name="Cirriculars" ngModel>
+        </md-input-container><br>
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="qualification"></md-icon>
+          <input md-input type="text" placeholder="Other Qualification" name="OtherQualification" ngModel>
+        </md-input-container><br>
+
+        <md-input-container class="input-container">
+          <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="password"></md-icon>
+          <input md-input type="password" placeholder="Password" name="Password" required ngModel>
+        </md-input-container><br>
+
+        <button md-raised-button type="submit" color="primary">Register</button>
+      </form>
+
+    </div>
+
+  </md-card><br><br>
+</div>
+
+
+
+<div [hidden]="!matchCompany">
+  <md-card>
+    <a>View Comapny Detail</a>
+  </md-card>
+</div>

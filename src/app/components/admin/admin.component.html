@@ -1,0 +1,98 @@
+<md-tab-group>
+      <md-tab label="View Student Detail">
+            <div id="selectBoxDiv">
+                  <md-select placeholder="Select Department" [(ngModel)]="selectedValue" (ngModelChange)="changeDepartment($event,selectedValue)"
+                        id="selectBox">
+                        <md-option value="ComputerScience">Computer Science</md-option>
+                        <md-option value="Civil Engineering">Civil Engineering</md-option>
+                        <md-option value="Computer Engineering">Computer Engineering</md-option>
+                        <md-option value="Electrical Engineering">Electrical Engineering</md-option>
+                        <md-option value="Electronics & Electrical Systems">Electronics & Electrical Systems</md-option>
+                        <md-option value="Mechanical Engineering">Mechanical Engineering</md-option>
+                        <md-option value="Department of Technology">Department of Technology</md-option>
+                  </md-select>
+            </div>
+            
+            <div id="loader" *ngIf="loading">
+                  <md-spinner class="app-spinner"></md-spinner>
+            </div><br><br>
+
+            <div>
+                  <md-card *ngFor="let s of studentDepartmantWise" style="margin-top: 2em" [ngClass]="{'active-selected-row' : s.selected}">
+                        <img md-card-avatar *ngIf="!s.imageURL" class="md-user-avatar user_img" src='{{"../../app/img/userImage.png"}}'>
+                        <img *ngIf="s.imageURL" md-card-avatar class="md-user-avatar user_img" [src]= s .imageURL>
+                  <div class="inline-block-elem top-aligned-elem card-cell-1n">
+                        <div class="UserProfile">
+                              <h2>
+                              <span class="uname-css">
+                                    {{(s.FirstName ? s.FirstName + " " :  "")}}{{(s.LastName ? s.LastName :  "")}}
+                              </span>
+                              </h2>
+                              <p style="margin: 1em 0;"><span class="infoLbl bold">Gender</span><span class="regular" style="padding: 1.5em">{{(s.Gender ? s.Gender : "")}}</span>
+                              </p>
+                        </div>
+                  </div>
+                  <div class="inline-block-elem top-aligned-elem card-cell-2n">
+                        <div>
+                              <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Date of Birth</span> <span class="relation-css regular rightFloatElem">{{s.DOB || ""}}</span></p>
+                        </div>
+                        <div>
+                              <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">CONTACT NO:</span> <span class="relation-css regular rightFloatElem">{{s.Contact || ""}}</span></p>
+                        </div>
+                        <div>
+                              <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Email:</span> <span class="relation-css regular rightFloatElem">{{s.Email || ""}}</span></p>
+                        </div>
+                  </div>
+                  <div class="inline-block-elem top-aligned-elem card-cell-3n">
+                        <div id="deleteBtn">
+                              <button md-raised-button (click)="deleteUser(s.$key)" color="primary" id="Delete">Delete</button>
+                        </div>
+                        <div id="ResumeBtn">
+                              <button md-raised-button (click)="ViewResume(s.$key)" color="primary" id="Resume">View Resume</button>
+                        </div>
+                  </div>
+                  <md-card-actions layout="row" layout-align="end center" class='rightClearElem card_action'>
+                        <div class="triangleRightBottom">
+                              <span class="fa fa-check"></span>
+                        </div>
+                  </md-card-actions>
+            </md-card><br>
+      </div>
+</md-tab>
+
+
+<md-tab label="View All Companies">
+    <div id="CompaniesCardDiv">
+        <md-card *ngFor="let s of Companies" id="CompaniesCard">
+            <img *ngIf= "!s.logoURL" md-card-avatar class="md-user-avatar company_img" src = '{{"../../app/img/icons/logo.png"}}'>
+            <img *ngIf= "s.logoURL" md-card-avatar class="md-user-avatar company_img" [src] = s.logoURL>
+            <div class="inline-block-elem top-aligned-elem card-cell-1n">
+                <div class="UserProfile">
+                    <h2>
+                        <span class="uname-css">
+                        {{(s.CompanyName ? s.CompanyName :  "")}}
+                      </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="inline-block-elem top-aligned-elem card-cell-2n">
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">CONTACT NO:</span> <span class="relation-css regular rightFloatElem">{{s.PhoneNumber || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">Email:</span> <span class="relation-css regular rightFloatElem">{{s.established || ""}}</span></p>
+                </div>
+                <div>
+                    <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">HR Name:</span> <span class="relation-css regular rightFloatElem">{{s.hrName || ""}}</span></p>
+                </div>
+            </div>
+            <div id="jobBtn">
+                <button md-raised-button (click)="ViewJOBS(s.$key)" color="primary">View Jobs</button>
+            </div>
+            <div id="deleteCompany">
+                <button md-raised-button (click)="ViewJOBS(s.$key)" color="primary">Delete Company</button>
+            </div>
+        </md-card><br>
+    </div>
+</md-tab>
+</md-tab-group>

@@ -1,0 +1,102 @@
+.my-drop-zone { border: dotted 3px lightgray; }
+    .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+    .another-file-over-class { border: dotted 3px green; }
+ 
+    html, body { height: 100%; }
+
+    md-card {
+    box-shadow: 0 3px 1px -2px rgba(8, 17, 88, 0.99), 0 2px 2px 0 rgba(8, 17, 88, 0.99), 0 1px 5px 0 rgba(8, 17, 88, 0.99)
+ }
+ #Card{
+    width: 71%;
+}
+#mainDiv{
+    margin-left: 12%;
+    width: 100%;
+    margin-top: 10%;
+}
+ h2{
+      color: rgba(8, 17, 88, 0.99)
+ }
+
+ md-card {
+    
+    box-shadow: 0 3px 1px -2px rgba(8, 17, 88, 0.99), 0 2px 2px 0 rgba(8, 17, 88, 0.99), 0 1px 5px 0 rgba(8, 17, 88, 0.99),
+     
+ }
+  .page_printList_mdCard {
+    display: inline-block;
+    height: auto;
+    vertical-align: top;
+    width: 98%;
+    margin-left: 1em;
+}
+.card_content{
+    margin: 0;
+    padding-bottom: 0;
+}
+.card_action{
+    margin-top: -20px;
+}
+.uname-css{
+    color:  rgba(8, 17, 88, 0.99);
+}
+.infoLbl{
+    color: #A7A9AC;
+    font-size:0.938em;
+}
+.black{
+    color: #000;
+}
+
+.UserProfile {
+    line-height: 1.9em;
+}
+.bold{
+    font-family: Roboto-bold;
+}
+
+.inline-block-elem{
+    display: inline-block;
+}
+
+.top-aligned-elem {
+    vertical-align: top;
+}
+
+.card-cell-1n{
+    width: 15%;
+    margin-left: 2em;
+
+}
+ .card-cell-2n{
+    width: 22%;
+    margin-right: 2%;
+}
+.card-cell-3n{
+    width: 32%;
+}
+
+.patient_img{
+    display: inline-block;
+    min-width: 35px;
+    min-height: 35px;
+    width: 70px;
+    height: 70px;
+    cursor: default;
+    border-radius: 500px;
+    vertical-align: super;
+}
+#CompaniesCardDiv{
+    margin-left: 3%;
+    width: 100%;
+    margin-top: 6%;
+}
+#CompaniesCard{
+    width: 90%;  
+        margin-top: 1em;  
+}
+#jobBtn{
+    float: right;
+    margin-top: 2em;
+}

@@ -25,7 +25,7 @@
                         <div class="UserProfile">
                               <h2>
                               <span class="uname-css">
-                                    {{(s.FirstName ? s.FirstName + " " :  "")}}{{(s.LastName ? s.LastName :  "")}}
+                                    {{(s.FirstName ? s.FirstName + " " :  "")}}
                               </span>
                               </h2>
                               <p style="margin: 1em 0;"><span class="infoLbl bold">Gender</span><span class="regular" style="padding: 1.5em">{{(s.Gender ? s.Gender : "")}}</span>
@@ -86,11 +86,13 @@
                     <p class="info-user bold" style="width: auto;"> <span class="infoLbl bold">HR Name:</span> <span class="relation-css regular rightFloatElem">{{s.hrName || ""}}</span></p>
                 </div>
             </div>
+            <div class="inline-block-elem top-aligned-elem card-cell-3n">
             <div id="jobBtn">
-                <button md-raised-button (click)="ViewJOBS(s.$key)" color="primary">View Jobs</button>
+                <button md-raised-button (click)="viewCompanyJobs(s.$key)" color="primary">View Jobs</button>
             </div>
             <div id="deleteCompany">
-                <button md-raised-button (click)="ViewJOBS(s.$key)" color="primary">Delete Company</button>
+                <button md-raised-button (click)="deletCompany(s.$key)" color="primary">Delete Company</button>
+            </div>
             </div>
         </md-card><br>
     </div>

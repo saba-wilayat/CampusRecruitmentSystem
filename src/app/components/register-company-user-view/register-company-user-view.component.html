@@ -22,12 +22,12 @@
             <div>
                   <md-card *ngFor="let s of studentDepartmantWise" style="margin-top: 2em" [ngClass]="{'active-selected-row' : s.selected}" (click) ="selectToggle($event, s)">
                         <img md-card-avatar *ngIf="!s.imageURL" class="md-user-avatar user_img" src='{{"../../app/img/userImage.png"}}'>
-                        <img *ngIf="s.imageURL" md-card-avatar class="md-user-avatar user_img" [src]= s .imageURL>
+                        <img *ngIf="s.imageURL" md-card-avatar class="md-user-avatar user_img" [src]= s.imageURL>
                   <div class="inline-block-elem top-aligned-elem card-cell-1n">
                         <div class="UserProfile">
                               <h2>
                               <span class="uname-css">
-                                    {{(s.FirstName ? s.FirstName :  "")}}{{(s.LastName ? s.LastName :  "")}}
+                                    {{(s.FirstName ? s.FirstName :  "")}}
                               </span>
                               </h2>
                               <p style="margin: 1em 0;"><span class="infoLbl bold">Gender</span><span class="regular" style="padding: 1.5em">{{(s.Gender ? s.Gender : "")}}</span>
@@ -68,7 +68,7 @@
                         <form #form="ngForm" (ngSubmit)="PostVecancy(form.value)" class="ui form">
                               <md-input-container>
                                     <md-icon class="jobProfile"></md-icon>
-                                    <input md-input type="text" placeholder="Job Profile" name="JobProfile" required ngModel>
+                                    <input md-input type="text" placeholder="Job Profile" name="JobProfile" id=jobName required ngModel>
                               </md-input-container><br>
                               <md-input-container>
                                     <md-icon class="jobTitle"></md-icon>

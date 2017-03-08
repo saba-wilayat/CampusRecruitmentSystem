@@ -19,7 +19,7 @@ export class GeneralService {
   loginUserSubject: Subject<any>;
   student: any;
   IDs;
-
+  CompanyID;
   constructor(public af: AngularFire, public router: Router, private _dialog: MdDialog, @Inject(FirebaseApp) private firebaseApp: firebase.app.App) {
     this.student = {};
     this.studentsListSubject = new Subject();
@@ -62,6 +62,12 @@ export class GeneralService {
   }
   getEamilIds() {
     return this.IDs;
+  }
+  setValue(id){
+    this.CompanyID = id
+  }
+  getCompnayID(){
+  return this.CompanyID;
   }
   getStudentsDataFromFB() {
     this.af.database.list('/Student/Registration', { query: { orderByChild: 'UserType', equalTo: 'Student' } })

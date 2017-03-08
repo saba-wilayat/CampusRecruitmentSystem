@@ -217,9 +217,16 @@ display: inline-block;
     width: 90%;  
     margin-top: 1em;  
 }
-#jobBtn{
+/*#jobBtn{
     float: right;
     margin-top: 2em;
+}*/
+
+#jobBtn{
+    display: inline-block;
+}
+#deleteCompany{
+    display: inline-block
 }
 
 

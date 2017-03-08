@@ -24,8 +24,8 @@ import { AddVecancyComponent } from './components/add-vecancy/add-vecancy.compon
 import { RegisteredStudentViewComponent } from './components/registered-student-view/registered-student-view.component';
 import { FileSelectDirective } from 'ng2-file-upload';
 import {DialogContent} from '../app/components/register-company-user-view/register-company-user-view.component';
-import {StudentDialog} from '../app/components/registered-student-view/registered-student-view.component';
-
+import {JobDialogContent} from '../app/components/registered-student-view/registered-student-view.component';
+import{AdminJobDialogContent} from '../app/components/admin/admin.component';
 
 export const firebaseLoginPolicy = {
   provider: AuthProviders.Password,
@@ -44,8 +44,9 @@ export const firebaseLoginPolicy = {
     RegisteredStudentViewComponent,
     FileSelectDirective,
     DialogContent,
-    StudentDialog,
-    DialogServiceService
+    JobDialogContent,
+    DialogServiceService,
+    AdminJobDialogContent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,7 @@ export const firebaseLoginPolicy = {
     ReactiveFormsModule
   ],
   providers: [GeneralService,DialogServiceService],
-  entryComponents: [DialogContent,StudentDialog,DialogServiceService],
+  entryComponents: [DialogContent,JobDialogContent,DialogServiceService,AdminJobDialogContent],
   bootstrap: [AppComponent]
   
 })

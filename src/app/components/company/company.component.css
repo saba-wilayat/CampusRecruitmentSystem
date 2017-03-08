@@ -1,9 +1,8 @@
 #companyLoginCard{
-    width: 35%
+    width: 50%
 }
 #companyDiv{
-    margin-left: 31%;
-    width: 100%;
+    margin-left: 31%;    
     margin-top: 10%;
 }
 
@@ -37,6 +36,7 @@
 }
 .input-container{
     width: 95% !important;
+     margin-left: 2.5em
 }
 .mainImageDiv{
     width: 50%
@@ -44,3 +44,22 @@
 .btn{
     margin-top: 1em
 }
+
+.material-icons {
+    margin-left: -2em;
+    font-size: 20px;
+}
+md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+
+    .SearchFilters_Container{
+    margin-left: 2em    
+    }
+
+    #registerBtn{
+            margin-left: 12em;
+    }
+    
+    .md-input-element{
+    margin-left: .8em
+    }

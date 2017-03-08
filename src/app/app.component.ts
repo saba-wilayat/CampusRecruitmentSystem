@@ -27,7 +27,7 @@ export class AppComponent {
           this.UserImage = s.logoURL
         }
         else if(s.UserType == "Student"){
-          this.UserName = "Welcome " + s.FirstName + " " + s.LastName;
+          this.UserName = "Welcome " + s.FirstName;
           this.UserImage = s.imageURL
         }  
         else{

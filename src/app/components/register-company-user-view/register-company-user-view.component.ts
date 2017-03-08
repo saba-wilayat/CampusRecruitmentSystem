@@ -29,7 +29,7 @@ export class RegisterCompanyUserViewComponent implements OnInit {
   resume;
   selectedValue;
 
-  constructor(public af: AngularFire, public myservices: GeneralService, private http: Http, private _dialog: MdDialog, ActivatedRoute: ActivatedRoute, @Inject(FirebaseApp) private firebaseApp: firebase.app.App) {
+  constructor(public af: AngularFire, public router: Router, public myservices: GeneralService, private http: Http, private _dialog: MdDialog, ActivatedRoute: ActivatedRoute, @Inject(FirebaseApp) private firebaseApp: firebase.app.App) {
 
     ActivatedRoute.params.subscribe(getKey => {
       console.log("getKey", getKey)
@@ -87,7 +87,7 @@ export class RegisterCompanyUserViewComponent implements OnInit {
           if (this.StudentArray[i].Department == this.value) {
             this.studentDepartmantWise.push(this.StudentArray[i])
             flag = true;
-            break;
+            // break;
           }
         }
       }
@@ -98,7 +98,10 @@ export class RegisterCompanyUserViewComponent implements OnInit {
     data.Company_Id = this.tempID.id
     const promise = this.Vecancy.push(data)
     promise
-      .then(_ => console.log('success'))
+      .then(_ =>
+        location.reload()
+      //console.log("sucsess")       
+      )
       .catch(err => console.log(err, 'You do not have access!'));
   }
 
@@ -106,36 +109,41 @@ export class RegisterCompanyUserViewComponent implements OnInit {
 
     this.af.database.list('/resume/', { query: { orderByChild: 'studentID', equalTo: id } })
       .subscribe(resume => {
-        this.resume = resume;
+        if (resume && resume.length) {
+          this.resume = resume;
+          let storageRef = this.firebaseApp.storage().ref();
+          var starsRef = storageRef.child('/resume/' + id + "/" + this.resume[0].filename);
 
-        let storageRef = this.firebaseApp.storage().ref();
-        var starsRef = storageRef.child('/resume/' + id + "/" + this.resume[0].filename);
+          // Get the download URL
+          starsRef.getDownloadURL().then(function (url) {
+            // Insert url into an <img> tag to "download"
+            //console.log("url" , url)        
+            location.href = url;
+          }).catch(function (error) {
+            switch (error.message) {
+              case 'storage/object_not_found':
+                // File doesn't exist
+                break;
 
-        // Get the download URL
-        starsRef.getDownloadURL().then(function (url) {
-          // Insert url into an <img> tag to "download"
-          //console.log("url" , url)        
-          location.href = url;
-        }).catch(function (error) {
-          switch (error.message) {
-            case 'storage/object_not_found':
-              // File doesn't exist
-              break;
+              case 'storage/unauthorized':
+                // User doesn't have permission to access the object
+                break;
 
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              break;
-
-            case 'storage/canceled':
-              // User canceled the upload
-              break;
+              case 'storage/canceled':
+                // User canceled the upload
+                break;
 
 
-            case 'storage/unknown':
-              // Unknown error occurred, inspect the server response
-              break;
-          }
-        });
+              case 'storage/unknown':
+                // Unknown error occurred, inspect the server response
+                break;
+            }
+          });
+        }
+        else{
+            alert("No Resume Found")
+        }
+
       })
 
 

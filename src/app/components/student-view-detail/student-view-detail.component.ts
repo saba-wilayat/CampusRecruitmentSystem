@@ -16,7 +16,7 @@ studentDepartmantWise;
   onChange(e,Value) {    
       console.log("Value" , Value); 
       this.value = Value     
-      this.myservices.getStudentsDataFromFB(Value);
+      this.myservices.getStudentsDataFromFB();
       this.myservices.getStudentsSubject()
     .subscribe(c => {
       this.StudentArray  = c.students;

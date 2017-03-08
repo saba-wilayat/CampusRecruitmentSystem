@@ -1,9 +1,8 @@
 #LoginCard{
-    width: 27%;
+    width: 50%;
 }
 #mainDiv{
-    margin-left: 31%;
-    width: 100%;
+    margin-left: 31%;   
     margin-top: 10%;
 }
  h2{
@@ -16,4 +15,17 @@
 
  .input-container{
     width: 95% !important;
+     margin-left: 2.5em
+}
+
+#submitBtn{
+    margin-left: 11em
+}
+
+.material-icons {
+    margin-left: -2em;
+    font-size: 20px;
+}
+.md-input-element{
+    margin-left: .8em
 }

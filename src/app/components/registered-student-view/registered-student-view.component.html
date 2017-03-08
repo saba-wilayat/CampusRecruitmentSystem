@@ -146,8 +146,8 @@
 <md-tab label="View All Companies">
     <div id="CompaniesCardDiv">
         <md-card *ngFor="let s of Companies" id="CompaniesCard">
-            <img *ngIf= "!logoURL" md-card-avatar class="md-user-avatar patient_img" src = '{{"../../app/img/icons/logo.png"}}'>
-            <img *ngIf= "logoURL" md-card-avatar class="md-user-avatar patient_img" [src] = s.logoURL>
+            <img *ngIf= "!s.logoURL" md-card-avatar class="md-user-avatar patient_img" src = '{{"../../app/img/icons/logo.png"}}'>
+            <img *ngIf= "s.logoURL" md-card-avatar class="md-user-avatar patient_img" [src] = s.logoURL>
             <div class="inline-block-elem top-aligned-elem card-cell-1n">
                 <div class="UserProfile">
                     <h2>
@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div id="jobBtn">
-                <button md-raised-button (click)="ViewJOBS(s.$key)" color="primary">View Jobs</button>
+                <button md-raised-button (click)="viewCompanyJobs(s.$key)" color="primary">View Jobs</button>
             </div>
         </md-card><br>
     </div>
